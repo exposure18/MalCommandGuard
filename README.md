@@ -17,7 +17,8 @@ I am using Logistic Regression, Linear SVC, Naive Bayes & Random Forest Classife
 <img width="940" height="651" alt="image" src="https://github.com/user-attachments/assets/7a9930cf-6069-4662-abb1-7a01c10438f8" />
 
 4) Malicious Analysis
-<img width="940" height="652" alt="image" src="https://github.com/user-attachments/assets/80801607-69b8-4609-8add-a66a98b71343" />
+<img width="940" height="652" alt="image" src="https://github.com/user-attachments/assets/3308971e-3b13-4cdc-b880-9937f374fb9f" />
 
+<br></br>
 
-It also has secure coding and commandlogs.txt
+5) It also has secure coding and commandlogs.txt
